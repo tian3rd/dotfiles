@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 # Functions
 source ~/.shell/functions.sh
 
@@ -42,7 +44,17 @@ if [ -f ~/.zshrc_local_after ]; then
     source ~/.zshrc_local_after
 fi
 
-# Allow private customizations (not checked in to version control)
-if [ -f ~/.shell_private ]; then
-    source ~/.shell_private
-fi
+# # Allow private customizations (not checked in to version control)
+# if [ -f ~/.shell_private ]; then
+#     source ~/.shell_private
+# fi
+export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"
+export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"

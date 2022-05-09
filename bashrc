@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/bashrc.pre.bash"
 # Functions
 source ~/.shell/functions.sh
 
@@ -38,3 +40,20 @@ fi
 if [ -f ~/.bashrc_local_after ]; then
     source ~/.bashrc_local_after
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+
+# added by rsudp/conda installer
+. /Users/tian3rd/miniconda3/etc/profile.d/conda.sh
+
+# EPICS installation
+export EPICS_BASE=${HOME}/EPICS/epics-base
+export EPICS_HOST_ARCH=$(${EPICS_BASE}/startup/EpicsHostArch)
+export PATH=${EPICS_BASE}/bin/${EPICS_HOST_ARCH}:${PATH}
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/bashrc.post.bash"

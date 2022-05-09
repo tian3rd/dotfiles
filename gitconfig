@@ -106,6 +106,8 @@
 
 [user]
 	useConfigOnly = true
+	email = tianwu@outlook.com
+	name = tian
 
 [http]
 	cookieFile = ~/.gitcookies
@@ -116,3 +118,10 @@
 # Allow local customizations in the .gitconfig_local file
 [include]
 	path = ~/.gitconfig_local
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
