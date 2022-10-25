@@ -54,6 +54,18 @@
     (kbd "<down>") 'proof-assert-next-command-interactive
     (kbd "<left>") 'proof-goto-end-of-locked)
 
+  ;; fstar mode bindings
+  (evil-define-key 'normal fstar-mode-map
+    (kbd "<right>") 'fstar-subp-advance-or-retract-to-point
+    (kbd "<up>") 'fstar-subp-retract-last
+    (kbd "<down>") 'fstar-subp-advance-next
+    (kbd "<left>") 'fstar-subp-goto-beginning-of-unprocessed)
+  (evil-define-key 'insert fstar-mode-map
+    (kbd "<right>") 'fstar-subp-advance-or-retract-to-point
+    (kbd "<up>") 'fstar-subp-retract-last
+    (kbd "<down>") 'fstar-subp-advance-next
+    (kbd "<left>") 'fstar-subp-goto-beginning-of-unprocessed)
+
   ;; leader keys
   (evil-set-leader 'normal (kbd "\\"))
   (evil-define-key 'normal 'global
@@ -218,3 +230,20 @@
   :load-path "vendor/evil-surround"
   :config
   (global-evil-surround-mode 1))
+
+(use-package quick-peek
+  :load-path "vendor/quick-peek")
+
+(use-package flycheck
+  :load-path "vendor/flycheck")
+
+(use-package company-quickhelp
+  :load-path "vendor/company-quickhelp")
+
+(use-package dash
+  :load-path "vendor/dash.el")
+
+;; this depends on quick-peek, flycheck, company-quickhelp, dash
+(use-package fstar-mode
+  :load-path "vendor/fstar-mode.el"
+  :mode ("\\.fst\\'" . fstar-mode))
